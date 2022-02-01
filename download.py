@@ -4,6 +4,7 @@ try:
     # object creation using YouTube
     # which was imported in the beginning 
     yt = YouTube("https://www.youtube.com/watch?v=SYZEqOwX9dg") 
+    print(yt.streams)
 except: 
     print("Connection Error") #to handle exception 
   
@@ -17,7 +18,7 @@ try:
     # d_video.download() 
 except: 
     print("Some Error!") 
-print('Task Completed!') 
+    
 
 
 #ask for the link from user
