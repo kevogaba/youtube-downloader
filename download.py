@@ -9,11 +9,12 @@ except:
   
 # get the video with the extension and
 # resolution passed in the get() function 
-d_video = yt.get(mp4files[-1].extension,mp4files[-1].resolution) 
-yt.streams.filter(progressive=True, file_extension='mp4').order_by('resolution').desc().first().download()
+# d_video = yt.get(mp4files[-1].extension,mp4files[-1].resolution) 
+
 try: 
     # downloading the video 
-    d_video.download() 
+    yt.streams.filter(progressive=True, file_extension='mp4').order_by('resolution').desc().first().download()
+    # d_video.download() 
 except: 
     print("Some Error!") 
 print('Task Completed!') 
