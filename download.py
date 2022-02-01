@@ -2,7 +2,9 @@ from pytube import YouTube
 
 while True:
     try:
-        yt = YouTube("https://www.youtube.com/watch?v=SYZEqOwX9dg")
+        yt = YouTube("https://www.youtube.com/watch?v=SYZEqOwX9dg")        
+        print(yt.streams.filter(only_video=True))
+        print(yt.streams.filter(only_audio=True).first())
         print("Title: ", yt.title)
         print("Number of views: ", yt.views)
         print("Rating of video: ", yt.rating)
