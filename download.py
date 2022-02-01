@@ -1,13 +1,13 @@
 from pytube import YouTube
 
 while True:
-    link = input("Enter the link of video you want to download: \n")
     try:
-        yt = YouTube(link)
+        yt = YouTube("https://www.youtube.com/watch?v=SYZEqOwX9dg")
         print("Title: ", yt.title)
         print("Number of views: ", yt.views)
         print("Rating of video: ", yt.rating)
         print(yt.streams.filter(only_video=True))
+        print(yt.streams.filter(only_audio=True).first())
 
         print(f"\nWhat do you want to download:")
         choice = int(input(f"1: Audio only \n2: Video \n"))
