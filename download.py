@@ -1,53 +1,12 @@
 from pytube import YouTube
 
-try: 
-    # object creation using YouTube
-    # which was imported in the beginning 
-    yt = YouTube("https://www.youtube.com/watch?v=SYZEqOwX9dg") 
-    print(yt.streams)
-except: 
-    print("Connection Error") #to handle exception 
-  
-# get the video with the extension and
-# resolution passed in the get() function 
-# d_video = yt.get(mp4files[-1].extension,mp4files[-1].resolution) 
-
-try: 
-    # downloading the video 
-    yt.streams.filter(progressive=True, file_extension='mp4').order_by('resolution').desc().first().download()
-    # d_video.download() 
-except: 
-    print("Some Error!") 
-    
-
-
-#ask for the link from user
-# link = input("Enter the link of YouTube video you want to download:  ")
-yt = YouTube("https://www.youtube.com/watch?v=SYZEqOwX9dg")
-
-#Showing details
-print("Title: ",yt.title)
-print("Number of views: ",yt.views)
-print("Length of video: ",yt.length)
-print("Rating of video: ",yt.rating)
-#Getting the highest resolution possible
-ys = yt.streams.get_highest_resolution()
-
-#Starting download
-print("Downloading...")
-ys.download()
-print("Download completed!!")
-
 while True:
+    link = input("Enter the link of video you want to download: \n")
     try:
-        yt = YouTube("https://www.youtube.com/watch?v=SYZEqOwX9dg")        
-        print(yt.streams.filter(only_video=True))
-        print(yt.streams.filter(only_audio=True).first())
+        yt = YouTube(link)
         print("Title: ", yt.title)
         print("Number of views: ", yt.views)
         print("Rating of video: ", yt.rating)
-        print(yt.streams.filter(only_video=True))
-        print(yt.streams.filter(only_audio=True).first())
 
         print(f"\nWhat do you want to download:")
         choice = int(input(f"1: Audio only \n2: Video \n"))
